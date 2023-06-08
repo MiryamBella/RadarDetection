@@ -1,8 +1,13 @@
 ﻿using System;
 
-public class PlotRadar
+public class PlotPicture
 {
-	public PlotRadar()
+    int x;
+    int y;
+    int bright;
+
+    public PlotPicture()
 	{
-	}
+
+    }   
 }

@@ -2,7 +2,9 @@
 
 public class PlotRadar
 {
-	public PlotRadar()
+    float azimuth;
+    float range;
+    public PlotRadar()
 	{
 	}
 }
