@@ -2,8 +2,8 @@
 
 public class PlotRadar
 {
-    float azimuth;
-    float range;
+    UInt32 azimuth;
+    UInt32 range;
     public PlotRadar()
 	{
 	}
