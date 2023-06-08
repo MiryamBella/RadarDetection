@@ -1,27 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class CLASSCALID
+public class Processor
 {
-	public CLASSCALID()
+	public Processor()
 	{
 	}
-	List<PlotRadar> blue_drones= new List<PlotRadar>
-	public radar_and_picture(List<PlotRadar> radars, List<PlotPicture> picture)
+	
+	public List<Drone> radar_and_picture(List<Drone> drones, List<Pixel> pixles)
 	{
-		foreach (drone in radars)
+
+        List<Pixel> highIntensityPixels = new List<Pixel>();
+        foreach (Pixel pixel in pixels)
 		{
-			x_drone = drone.azimuth / (image_degree / image_size_x) +512;
-			//bright?
-			foreach(p in picture)
+			if (pixel.Intensity > brightness_threshold)
 			{
-				if (abs(x_drone - p) <= degree_error_threshold)//and bright?
-				{
-					blue_drones.Add(drone)
-				}
+				highIntensityPixels.Add(pixel);
 			}
 		}
 
-	}
+        List<Drone> coloredDrones = new List<Drone>();
+		foreach (Drone drone in drones)
+		{
+			bool foundMatch = false;
+            x_drone = drone.azimuth / (image_degree / image_size_x) + image_size_x / 2;
+            foreach (Pixel pixel in highIntensityPixels)
+			{
+				if (Math.Abs(x_drone - pixel.X) <= degree_error_threshold)
+				{
+					drone.Color = Color.Blue;
+					foundMatch = true;
+					break;
+				}
+			}
 
+			if (!foundMatch)
+			{
+				drone.Color = Color.Red;
+			}
+			coloredDrones.Add(drone);
+		}
+		return coloredDrones;
+	}
 }
