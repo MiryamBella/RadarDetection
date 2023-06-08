@@ -6,10 +6,10 @@ namespace radar_project
     public enum Color { white, blue, red }
     public class Drone
     {
-        UInt32 degree;
-        UInt32 distance;
-        Color color;
-        public PlotRadar(UInt32 deg, UInt32 dis)
+        public UInt32 degree;
+        public UInt32 distance;
+        public Color color;
+        public Drone(UInt32 deg, UInt32 dis)
         {
             degree = deg;
             distance = dis;
