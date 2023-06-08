@@ -29,7 +29,20 @@
 
 		<!-- Second Space -->
 		<Border Grid.Row="0" Grid.Column="1">
-			<!-- Content for the second space -->
+			<Grid>
+				<Rectangle Width="100" Height="100" Fill="Red" Stroke="Black" StrokeThickness="2"/>
+
+				<!-- First row -->
+				<Rectangle Grid.Row="0" Grid.Column="1" Width="33.33" Height="33.33" Fill="Blue" Stroke="Black" StrokeThickness="1"/>
+				<Rectangle Grid.Row="0" Grid.Column="2" Width="33.33" Height="33.33" Fill="Green" Stroke="Black" StrokeThickness="1"/>
+
+				<!-- Second row -->
+				<Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Height="33.33" Fill="Yellow" Stroke="Black" StrokeThickness="1"/>
+
+				<!-- Third row -->
+				<Rectangle Grid.Row="2" Grid.Column="1" Width="33.33" Height="33.33" Fill="Orange" Stroke="Black" StrokeThickness="1"/>
+				<Rectangle Grid.Row="2" Grid.Column="2" Width="33.33" Height="33.33" Fill="Purple" Stroke="Black" StrokeThickness="1"/>
+			</Grid>
 		</Border>
 
 		<!-- Third Space -->
@@ -46,7 +59,7 @@
 
 		<!-- Fourth Space -->
 		<Border Grid.Row="1" Grid.Column="1">
-			<!-- Content for the fourth space -->
+			<Grid Width="300" Height="300" x:Name="MatrixGrid" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 		</Border>
 
 

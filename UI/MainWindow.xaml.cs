@@ -41,6 +41,7 @@ namespace UI
             EnterPoints();
             */
             AddPointAtPolarCoordinates(90, 300);
+            CreateMatrix();
         }
 
 
@@ -57,8 +58,8 @@ namespace UI
             {
                 Width = 6,
                 Height = 6,
-                Fill = Brushes.Red,
-                Stroke = Brushes.Red,
+                Fill = Brushes.White,
+                Stroke = Brushes.Black,
                 StrokeThickness = 1,
                 Margin = new Thickness(x - 3, y - 3, 0, 0) // Adjust position based on size of ellipse
             };
@@ -70,7 +71,7 @@ namespace UI
         {
             foreach( Drone drone in drones)
             {
-                //AddDrone1(drone.degree, drone.distance);
+                AddDrone1(drone);
             }
 
 
@@ -81,8 +82,41 @@ namespace UI
         {
             ///lnermak
             ///
-            AddPointAtPolarCoordinates(drone.zvit, drone.radius);
+            AddPointAtPolarCoordinates(drone.degree, drone.distance);
 
+        }
+
+
+
+        private void CreateMatrix()
+        {
+            const int Rows = 3;
+            const int Columns = 3;
+            MatrixGrid.Children.Clear();
+            MatrixGrid.RowDefinitions.Clear();
+            MatrixGrid.ColumnDefinitions.Clear();
+
+            for (int i = 0; i < Rows; i++)
+            {
+                MatrixGrid.RowDefinitions.Add(new RowDefinition());
+
+                for (int j = 0; j < Columns; j++)
+                {
+                    MatrixGrid.ColumnDefinitions.Add(new ColumnDefinition());
+
+                    Border square = new Border
+                    {
+                        BorderBrush = Brushes.Black,
+                        BorderThickness = new Thickness(1),
+                        Background = Brushes.White
+                    };
+
+                    Grid.SetRow(square, i);
+                    Grid.SetColumn(square, j);
+
+                    MatrixGrid.Children.Add(square);
+                }
+            }
         }
 
     }
@@ -91,11 +125,23 @@ namespace UI
 
     public class Drone
     {
-        public double zvit { get; set; }
-        public double radius { get; set; }
+        public double degree { get; set; }
+        public double distance { get; set; }
     }
 
-    
+    public class Pixel
+    {
+        public UInt32 x;
+        public UInt32 y;
+        public UInt32 bright;
+        public Pixel(UInt32 x_, UInt32 y_, UInt32 b)
+        {
+            x = x_;
+            y = y_;
+            bright = b;
+        }
+    }
+
 
 }
 
