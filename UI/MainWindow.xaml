@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800">
+        Title="MainWindow" Height="800" Width="800"
+		xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+xmlns:Media="clr-namespace:System.Windows.Media;assembly=PresentationCore"
+Background="LightBlue">
+	
     <Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="*"/>
@@ -20,6 +24,8 @@
 		<Border Grid.Row="0" Grid.Column="0">
 			<!-- Coordinate System -->
 			<Grid x:Name="coordinateSystem1">
+				<Controls:Image Source="C:\Users\mirya\Downloads\4862939194.jpg" Width="300" Height="300" />
+
 				<Ellipse Width="300" Height="300" Stroke="Black" StrokeThickness="2"/>
 				<Line x:Name="xAxis" X1="0" Y1="200" X2="400" Y2="200" Stroke="Black" StrokeThickness="1"/>
 				<Line x:Name="yAxis" X1="200" Y1="0" X2="200" Y2="400" Stroke="Black" StrokeThickness="1"/>
@@ -29,26 +35,15 @@
 
 		<!-- Second Space -->
 		<Border Grid.Row="0" Grid.Column="1">
-			<Grid>
-				<Rectangle Width="100" Height="100" Fill="Red" Stroke="Black" StrokeThickness="2"/>
-
-				<!-- First row -->
-				<Rectangle Grid.Row="0" Grid.Column="1" Width="33.33" Height="33.33" Fill="Blue" Stroke="Black" StrokeThickness="1"/>
-				<Rectangle Grid.Row="0" Grid.Column="2" Width="33.33" Height="33.33" Fill="Green" Stroke="Black" StrokeThickness="1"/>
-
-				<!-- Second row -->
-				<Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Height="33.33" Fill="Yellow" Stroke="Black" StrokeThickness="1"/>
-
-				<!-- Third row -->
-				<Rectangle Grid.Row="2" Grid.Column="1" Width="33.33" Height="33.33" Fill="Orange" Stroke="Black" StrokeThickness="1"/>
-				<Rectangle Grid.Row="2" Grid.Column="2" Width="33.33" Height="33.33" Fill="Purple" Stroke="Black" StrokeThickness="1"/>
-			</Grid>
+			<Grid x:Name="MatrixGrid" Margin="30,20,-30000,0"/>
 		</Border>
 
 		<!-- Third Space -->
 		<Border Grid.Row="1" Grid.Column="0">
 			<!-- Coordinate System -->
 			<Grid x:Name="coordinateSystem2">
+				<Controls:Image Source="C:\Users\mirya\Downloads\4862939194.jpg" Width="300" Height="300" />
+
 				<Ellipse Width="300" Height="300" Stroke="Black" StrokeThickness="2"/>
 				<Line x:Name="xAxis2" X1="0" Y1="200" X2="400" Y2="200" Stroke="Black" StrokeThickness="1"/>
 				<Line x:Name="yAxis2" X1="200" Y1="0" X2="200" Y2="400" Stroke="Black" StrokeThickness="1"/>
@@ -59,17 +54,18 @@
 
 		<!-- Fourth Space -->
 		<Border Grid.Row="1" Grid.Column="1">
-			<Grid Width="300" Height="300" x:Name="MatrixGrid" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			<TextBlock Text="Control panel - Israeli radar" FontSize="20" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
 		</Border>
 
 
-		
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
+
 		<!-- First Space -->
 		<!-- <Border Grid.Row="0" Grid.Column="0" Background="Red"/> -->
 
